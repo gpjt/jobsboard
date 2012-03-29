@@ -52,8 +52,31 @@
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+        {% for job in jobs %}
+
+            <br/>
+
+            <div class="row">
+
+                <div class="span4">
+                    Posted: {{ job.posted }}<br/>
+                    Type: {{ job.get_job_type_display }}<br/>
+                    Website: <a href="{{job.url }}">{{ job.url }}</a>
+                    Location: {{ job.location }}<br/>
+                    Company: {{ job.company }}<br/>
+                    Experience: {{ job.experience }}<br/>
+                    Contact: {{ job.contact_email }}<br/>
+                </div>
+
+                <div class="span8">
+
+                    {{ job.description }}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
 
     </div> <!-- /container -->
 
