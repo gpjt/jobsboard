@@ -11,8 +11,9 @@ MANAGERS = ADMINS
 
 from db_settings import *
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'webgljobs@gmail.com'
+EMAIL_SUBJECT_PREFIX = "[WebGL Jobs] "
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "webgljobs@gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 from email_password import *
