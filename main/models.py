@@ -24,6 +24,8 @@ class Job(models.Model):
 
     company = models.CharField(max_length=512, blank=True)
 
+    title = models.CharField(max_length=1024)
+
     description = models.TextField()
 
     contact_email = models.EmailField(max_length=254)

@@ -7,7 +7,15 @@
 
     {% for job in jobs %}
 
+        <h2>{{ job.title }}</h2>
+
         <div class="row">
+
+            <div class="span8">
+
+                {{ job.description|markdown }}
+
+            </div>
 
             <div class="span3">
                 Posted: {{ job.posted }}<br/>
@@ -18,12 +26,6 @@
                 Company: {{ job.company }}<br/>
                 Experience: {{ job.experience }}<br/>
                 Contact: {{ job.contact_email }}<br/>
-            </div>
-
-            <div class="span8">
-
-                {{ job.description|markdown }}
-
             </div>
 
         </div>
