@@ -28,6 +28,9 @@ and
         }
     }
 
+You can also add a file called main/templates/google_analytics.html with
+the Google Analytics code if you want.
+
 ## Dependencies ##
 
 * Django

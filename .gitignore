@@ -1,3 +1,4 @@
 *.pyc
 db_settings.*
 email_settings.*
+main/templates/google_analytics.html
