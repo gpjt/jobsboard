@@ -33,5 +33,6 @@ the Google Analytics code if you want.
 
 ## Dependencies ##
 
-* Django
-* South
+* [Django 1.3](http://pypi.python.org/pypi/Django/)
+* [South](http://pypi.python.org/pypi/South)
+* [Python-markdown](http://pypi.python.org/pypi/Markdown)

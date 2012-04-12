@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block home_tab_class %}active{% endblock %}
 
@@ -21,7 +22,7 @@
 
             <div class="span8">
 
-                {{ job.description }}
+                {{ job.description|markdown }}
 
             </div>
 
