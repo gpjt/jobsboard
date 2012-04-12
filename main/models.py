@@ -4,6 +4,8 @@ class Job(models.Model):
 
     posted = models.DateTimeField(auto_now_add=True)
 
+    approved = models.BooleanField(default=False)
+
     JOB_TYPE_CHOICES = (
         ("PT", "Part-time"),
         ("FT", "Full-time"),
