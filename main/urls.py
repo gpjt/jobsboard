@@ -15,4 +15,12 @@ urlpatterns = patterns("",
         },
         name="main_page"
     ),
+    url(
+        r"^about/$",
+        direct_to_template,
+        {
+            "template": "about.html",
+        },
+        name="about_page"
+    ),
 )
