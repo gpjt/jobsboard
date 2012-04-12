@@ -6,13 +6,12 @@
 
     {% for job in jobs %}
 
-        <br/>
-
         <div class="row">
 
-            <div class="span4">
+            <div class="span3">
                 Posted: {{ job.posted }}<br/>
                 Type: {{ job.get_job_type_display }}<br/>
+                Rate/Salary:  {{ job.salary }}<br/>
                 Website: <a href="{{job.url }}">{{ job.url }}</a><br/>
                 Location: {{ job.location }}<br/>
                 Company: {{ job.company }}<br/>

@@ -14,6 +14,8 @@ class Job(models.Model):
     )
     job_type = models.CharField(max_length=2, choices=JOB_TYPE_CHOICES)
 
+    salary = models.CharField(max_length=128, blank=True)
+
     url = models.CharField(max_length=1024, blank=True)
 
     location = models.CharField(max_length=1024, blank=True)
