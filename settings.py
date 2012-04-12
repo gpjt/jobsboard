@@ -11,6 +11,12 @@ MANAGERS = ADMINS
 
 from db_settings import *
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'webgljobs@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+from email_password import *
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
