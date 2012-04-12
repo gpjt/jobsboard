@@ -5,8 +5,8 @@ under an MIT License.
 
 ## Configuration ##
 
-Check out the source, then create files in the root called email_settings.py
-and db_settings.py, with contents like these:
+Check out the source, then create files in the root called `email_settings.py`
+and `db_settings.py`, with contents like these:
 
     EMAIL_SUBJECT_PREFIX = "[WebGL Jobs] "
     EMAIL_HOST = "smtp.gmail.com"
@@ -28,7 +28,7 @@ and
         }
     }
 
-You can also add a file called main/templates/google_analytics.html with
+You can also add a file called `main/templates/google_analytics.html` with
 the Google Analytics code if you want.
 
 ## Dependencies ##
