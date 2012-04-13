@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.views.generic.simple import direct_to_template
+from django.views.generic.create_update import create_object
 
+from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
 
 urlpatterns = patterns("",
@@ -22,5 +24,14 @@ urlpatterns = patterns("",
             "template": "about.html",
         },
         name="about_page"
+    ),
+    url(
+        r"^add/$",
+        create_object,
+        {
+            "form_class": JobForm,
+            "template_name": "create_new_job.html",
+        },
+        name="create_new_job"
     ),
 )

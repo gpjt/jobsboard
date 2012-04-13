@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block add_tab_class %}active{% endblock %}
+
+{% block body %}
+
+    <h2>Post a new job</h2>
+
+    <div class="row">
+
+        <div class="span10 well">
+            <form method="POST" action=".">
+
+                {% csrf_token %}
+
+                {{ form.as_table }}
+
+                <br/>
+
+                <button type="submit" class="btn btn-primary">Post job</button>
+
+            <form>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+

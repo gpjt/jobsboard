@@ -1,0 +1,13 @@
+ul.errorlist {
+    color: #880000;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+input {
+    width: 50%;
+}
+
+textarea {
+    width: 50%;
+}
