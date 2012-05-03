@@ -31,4 +31,4 @@ class Job(models.Model):
 
     contact_email = models.EmailField(max_length=254)
 
-    experience = models.CharField(max_length=128)
+    experience = models.CharField(max_length=128, blank=True)
