@@ -13,7 +13,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "jobs": lambda: Job.objects.all().filter(approved=True)
+                "jobs": lambda: Job.objects.all().filter(approved=True).order_by("-id")
             }
         },
         name="main_page"
