@@ -6,6 +6,8 @@ class Job(models.Model):
 
     approved = models.BooleanField(default=False)
 
+    title = models.CharField(max_length=1024)
+
     JOB_TYPE_CHOICES = (
         ("PT", "Part-time"),
         ("FT", "Full-time"),
@@ -24,7 +26,6 @@ class Job(models.Model):
 
     company = models.CharField(max_length=512, blank=True)
 
-    title = models.CharField(max_length=1024)
 
     description = models.TextField()
 
