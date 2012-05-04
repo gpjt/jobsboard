@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.core.urlresolvers import reverse
 from django.views.generic.simple import direct_to_template
 from django.views.generic.create_update import create_object
+from django.views.generic.list_detail import object_detail
 
 from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
@@ -17,6 +18,16 @@ urlpatterns = patterns("",
             }
         },
         name="main_page"
+    ),
+    url(
+        r'^(?P<object_id>\d+)/$',
+        object_detail,
+        {
+            "queryset": Job.objects.all(),
+            "template_name": "job_detail.html",
+            "template_object_name": "job"
+        },
+        name="view_job"
     ),
     url(
         r"^about/$",
