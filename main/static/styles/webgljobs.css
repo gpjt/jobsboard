@@ -1,3 +1,7 @@
+h2 a {
+    color: black;
+}
+
 ul.errorlist {
     color: #880000;
     list-style-type: none;
