@@ -11,8 +11,7 @@ class Job(models.Model):
     JOB_TYPE_CHOICES = (
         ("PT", "Part-time"),
         ("FT", "Full-time"),
-        ("CT", "Fixed-term contract"),
-        ("CP", "Fixed-price contract"),
+        ("FL", "Freelance"),
         ("VL", "Volunteer"),
         ("OT", "Other"),
     )
