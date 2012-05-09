@@ -28,7 +28,7 @@ class Job(models.Model):
 
     description = models.TextField()
 
-    contact_email = models.EmailField(max_length=254)
+    contact_email = models.EmailField(max_length=254, blank=True)
 
     experience = models.CharField(max_length=128, blank=True)
 
