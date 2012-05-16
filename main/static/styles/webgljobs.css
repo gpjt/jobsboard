@@ -15,3 +15,7 @@ input {
 textarea {
     width: 50%;
 }
+
+td {
+    vertical-align: top;
+}
