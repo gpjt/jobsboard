@@ -6,6 +6,8 @@ class Job(models.Model):
 
     approved = models.BooleanField(default=False)
 
+    filled = models.BooleanField(default=False)
+
     title = models.CharField(max_length=1024)
 
     JOB_TYPE_CHOICES = (

@@ -27,6 +27,8 @@ class LatestEntriesFeed(Feed):
         return Job.objects.filter(approved=True).order_by("-posted")[:20]
 
     def item_title(self, item):
+        if item.filled:
+            return "FILLED: " + item.title
         return item.title
 
     def item_description(self, item):
