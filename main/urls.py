@@ -7,6 +7,7 @@ from django.views.generic.list_detail import object_detail
 from webgljobs.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
 from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
+from webgljobs.main.views import approve, disapprove
 
 urlpatterns = patterns("",
     url(
@@ -29,6 +30,16 @@ urlpatterns = patterns("",
             "template_object_name": "job"
         },
         name="view_job"
+    ),
+    url(
+        r'^(?P<object_id>\d+)/approve$',
+        approve,
+        name="approve_job"
+    ),
+    url(
+        r'^(?P<object_id>\d+)/disapprove$',
+        disapprove,
+        name="disapprove_job"
     ),
     url(
         r'^feed/$',
