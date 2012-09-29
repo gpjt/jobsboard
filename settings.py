@@ -11,6 +11,7 @@ MANAGERS = ADMINS
 
 from db_settings import *
 from email_settings import *
+from twitter_settings import *
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

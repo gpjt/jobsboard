@@ -1,11 +1,20 @@
+from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.contrib.sites.models import Site
 
+import tweepy
+
 from webgljobs.main.forms import TweetForm
 from webgljobs.main.models import Job
 
+
+def tweet_as_webgljobs(tweet):
+    auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
+    auth.set_access_token(settings.OWN_TWITTER_ACCOUNT_ACCESS_KEY, settings.OWN_TWITTER_ACCOUNT_ACCESS_SECRET)
+    api = tweepy.API(auth)
+    api.update_status(tweet)
 
 
 @staff_member_required
@@ -19,6 +28,7 @@ def approve(request, object_id):
             site = Site.objects.all()[0]
             job_url = "http://%s%s" % (site.domain, job.get_absolute_url())
             tweet = "New #WebGL #Job: %s %s" % (form.cleaned_data["summary"], job_url)
+            tweet_as_webgljobs(tweet)
             return render(request, "job_approve_done.html", { "job": job, "tweet": tweet })
     else:
         form = TweetForm()
