@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}WebGL Jobs: Job {{ job.title }} approved{% endblock %}
+
+{% block body %}
+
+    <p>
+    Job "{{ job.title }}" has been approved.  
+    <a href="{{ job.get_absolute_url }}">Click here to visit it.</a>
+    </p>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}WebGL Jobs: Approve {{ job.title }}?{% endblock %}
+
+{% block body %}
+
+    <p>
+    Are you sure that you want to approve this job?
+    </p>
+
+    {% include "job_include.html" %}
+
+    <form method="POST" action="{% url approve_job job.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="confirmed" value="yes" />
+        <input type="submit" class="btn btn-danger" value="Approve" />
+    </form>
+
+{% endblock %}

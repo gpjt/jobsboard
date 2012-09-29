@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}WebGL Jobs: Disapprove {{ job.title }}?{% endblock %}
+
+{% block body %}
+
+    <h1>You are about to permanently delete this job</h1>
+
+    <hr/>
+    {% include "job_include.html" %}
+    <hr/>
+    
+    <p>
+        <b>Are you sure?</b>
+    </p>
+
+    <form method="POST" action="{% url disapprove_job job.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="confirmed" value="yes" />
+        <input type="submit" class="btn btn-danger" value="Disapprove and delete" />
+    </form>
+
+{% endblock %}
