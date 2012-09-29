@@ -10,8 +10,16 @@
 
     {% include "job_include.html" %}
 
-    <form method="POST" action="{% url approve_job job.id %}">
+    <form method="POST" action="{% url approve_job job.id %}" class="form-horizontal">
         {% csrf_token %}
+        
+        <p>
+        A tweet will be sent with the following content:
+        </p>
+        <p class="well">
+            <label class="control-label">New #WebGL #Job:</label>{{ form.summary }}
+        </p>
+
         <input type="hidden" name="confirmed" value="yes" />
         <input type="submit" class="btn btn-danger" value="Approve" />
     </form>

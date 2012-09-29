@@ -5,8 +5,12 @@
 {% block body %}
 
     <p>
-    Job "{{ job.title }}" has been approved.  
-    <a href="{{ job.get_absolute_url }}">Click here to visit it.</a>
+        Job "{{ job.title }}" has been approved, and the following tweet has been 
+        sent: <b>{{ tweet }}</b>
+    </p>
+    
+    <p>
+        <a href="{{ job.get_absolute_url }}">Click here to visit the job.</a>
     </p>
 
 {% endblock %}
