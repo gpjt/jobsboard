@@ -1,8 +1,9 @@
 from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
 from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 
 import tweepy
 
@@ -48,4 +49,20 @@ def disapprove(request, object_id):
 
 
 def retweeter_setup_oath(request):
-    return HttpResponse("OK")
+    auth = tweepy.OAuthHandler(
+        settings.APP_CONSUMER_KEY,
+        settings.APP_CONSUMER_SECRET
+    )
+    redirect_url = auth.get_authorization_url()
+    request.session["request_token"] =  (auth.request_token.key, auth.request_token.secret)
+    return HttpResponseRedirect(redirect_url)
+
+
+def retweeter_oauth_callback(request):
+    verifier = request.GET['oauth_verifier']
+    auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
+    token = request.session["request_token"]
+    request.session["request_token"] = ""
+    auth.set_request_token(token[0], token[1])
+    auth.get_access_token(verifier)
+    return HttpResponse("got key=%s, secret=%s" % (auth.access_token.key, auth.access_token.secret))

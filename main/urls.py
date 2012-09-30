@@ -7,7 +7,7 @@ from django.views.generic.list_detail import object_detail
 from webgljobs.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
 from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
-from webgljobs.main.views import approve, disapprove, retweeter_setup_oath
+from webgljobs.main.views import approve, disapprove, retweeter_oauth_callback, retweeter_setup_oath
 
 urlpatterns = patterns("",
 
@@ -95,6 +95,11 @@ urlpatterns = patterns("",
         r"^retweeter/setup_oauth$",
         retweeter_setup_oath,
         name="retweeter_setup_oauth"
+    ),
+    url(
+        r"^retweeter/oauth_callback$",
+        retweeter_oauth_callback,
+        name="retweeter_oauth_callback"
     ),
 
 
