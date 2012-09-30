@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}WebGL Jobs: Retweeting us{% endblock %}
+
+{% block about_tab_class %}active{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="span6">
+        <h1>Get involved!</h1>
+
+        <p>
+            <b>
+                Do you want your Twitter followers to hear about new WebGL jobs, as soon as
+                they're posted &mdash; so your friends get the first chance to apply?
+            </b>
+        </p>
+
+        <p>
+        Every time someone posts a job here (well, just as soon as we've checked it
+        out by hand to make sure it's not inappropriate or spam) the
+        <a href="http://www.twitter.com/webgljobs">WebGL Jobs twitter account</a>
+        tweets about it.  If you authorise
+        our Twitter app, you'll automatically retweet it.
+        </p>
+
+        <p>
+        Obviously we promise not to do anything else with your account, and you can
+        revoke our tweeting privileges at any time, using
+        <a href="https://twitter.com/settings/applications">this page on the Twitter site</a>.
+        We don't get access to your Twitter password or anything like that.
+        </p>
+
+        <p>
+        Interested?  Click the button below to get going.
+        </p>
+
+        <a class="btn btn-primary btn-large" href="{% url retweeter_setup_oauth %}">Authorise WebGL Jobs now! &raquo;</a>
+    </div>
+</div>
+
+{% endblock %}
