@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 import tweepy
 
 from webgljobs.main.forms import TweetForm
-from webgljobs.main.models import Job
+from webgljobs.main.models import Job, Retweeter
 
 
 def tweet_as_webgljobs(tweet):
@@ -49,10 +49,7 @@ def disapprove(request, object_id):
 
 
 def retweeter_setup_oath(request):
-    auth = tweepy.OAuthHandler(
-        settings.APP_CONSUMER_KEY,
-        settings.APP_CONSUMER_SECRET
-    )
+    auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
     redirect_url = auth.get_authorization_url()
     request.session["request_token"] =  (auth.request_token.key, auth.request_token.secret)
     return HttpResponseRedirect(redirect_url)
@@ -65,4 +62,17 @@ def retweeter_oauth_callback(request):
     request.session["request_token"] = ""
     auth.set_request_token(token[0], token[1])
     auth.get_access_token(verifier)
-    return HttpResponse("got key=%s, secret=%s" % (auth.access_token.key, auth.access_token.secret))
+    users_access_key = auth.access_token.key
+    users_access_secret = auth.access_token.secret
+
+    auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
+    auth.set_access_token(users_access_key, users_access_secret)
+    api = tweepy.API(auth)
+    username = api.me().screen_name
+    Retweeter(
+        username=username,
+        access_key=users_access_key,
+        access_secret=users_access_secret
+    ).save()
+
+    return render(request, "retweeter_oauth_done.html", { "username": username })

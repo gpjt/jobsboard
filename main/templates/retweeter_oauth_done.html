@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}WebGL Jobs: Retweeting us: done!{% endblock %}
+
+{% block about_tab_class %}active{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="span6">
+        <h1>Thanks, {{ username }}!</h1>
+
+        <p>
+            <b>
+                You're now set up to automatically retweet about all new WebGL 
+                jobs.
+            </b>
+        </p>
+
+        <p>
+        If you want to change this any time in the future, you can
+        revoke our tweeting privileges using
+        <a href="https://twitter.com/settings/applications">this page on the Twitter site</a>.
+        Just look for the WebGL Job Tweeter app, and click the "Revoke" button.
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

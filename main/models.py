@@ -41,3 +41,16 @@ class Job(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class Retweeter(models.Model):
+
+    username = models.CharField(max_length=32)
+
+    access_key = models.CharField(max_length=70)
+
+    access_secret = models.CharField(max_length=70)
+
+
+    def __unicode__(self):
+        return self.username
