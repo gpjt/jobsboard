@@ -45,3 +45,7 @@ def disapprove(request, object_id):
         return HttpResponse("Erroneous form submission, should never happen...")
     job.delete()
     return render(request, "job_disapprove_done.html")
+
+
+def retweeter_setup_oath(request):
+    return HttpResponse("OK")

@@ -7,9 +7,10 @@ from django.views.generic.list_detail import object_detail
 from webgljobs.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
 from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
-from webgljobs.main.views import approve, disapprove
+from webgljobs.main.views import approve, disapprove, retweeter_setup_oath
 
 urlpatterns = patterns("",
+
     url(
         r"^$",
         direct_to_template,
@@ -21,6 +22,7 @@ urlpatterns = patterns("",
         },
         name="main_page"
     ),
+
     url(
         r'^(?P<object_id>\d+)/$',
         object_detail,
@@ -41,6 +43,7 @@ urlpatterns = patterns("",
         disapprove,
         name="disapprove_job"
     ),
+
     url(
         r'^feed/$',
         LatestEntriesFeed(),
@@ -51,6 +54,7 @@ urlpatterns = patterns("",
         UnapprovedEntriesFeed(),
         name="unapproved_feed"
     ),
+
     url(
         r"^about/$",
         direct_to_template,
@@ -59,6 +63,7 @@ urlpatterns = patterns("",
         },
         name="about_page"
     ),
+
     url(
         r"^add/$",
         create_object,
@@ -77,4 +82,20 @@ urlpatterns = patterns("",
         },
         name="create_new_job_thanks"
     ),
+
+    url(
+        r"^retweeter/intro$",
+        direct_to_template,
+        {
+            "template": "retweeter_intro.html",
+        },
+        name="retweeter_intro"
+    ),
+    url(
+        r"^retweeter/setup_oauth$",
+        retweeter_setup_oath,
+        name="retweeter_setup_oauth"
+    ),
+
+
 )
