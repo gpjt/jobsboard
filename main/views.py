@@ -69,10 +69,13 @@ def retweeter_oauth_callback(request):
     auth.set_access_token(users_access_key, users_access_secret)
     api = tweepy.API(auth)
     username = api.me().screen_name
-    Retweeter(
-        username=username,
-        access_key=users_access_key,
-        access_secret=users_access_secret
-    ).save()
+
+    try:
+        retweeter = Retweeter.objects.get(username=username)
+    except Retweeter.DoesNotExist:
+        retweeter = Retweeter(username=username)
+    retweeter.access_key = users_access_key
+    retweeter.access_secret = users_access_secret
+    retweeter.save()
 
     return render(request, "retweeter_oauth_done.html", { "username": username })

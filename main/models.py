@@ -45,7 +45,7 @@ class Job(models.Model):
 
 class Retweeter(models.Model):
 
-    username = models.CharField(max_length=32)
+    username = models.CharField(max_length=32, unique=True)
 
     access_key = models.CharField(max_length=70)
 
