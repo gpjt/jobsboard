@@ -37,3 +37,7 @@ class Job(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('view_job', [str(self.id)])
+
+
+    def __unicode__(self):
+        return self.title

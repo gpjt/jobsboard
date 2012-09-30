@@ -3,6 +3,7 @@ from webgljobs.main.models import Job
 
 class JobAdmin(admin.ModelAdmin):
     list_display = ('approved', 'filled', 'title', 'contact_email')
+    list_display_links = ('title',)
     list_filter = ('approved', 'filled')
 
 admin.site.register(Job, JobAdmin)
