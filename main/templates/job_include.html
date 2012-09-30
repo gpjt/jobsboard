@@ -2,13 +2,13 @@
 
 <div class="row">
 
-    <div class="span5 offset1">
+    <div class="span6">
         <h2><a href="{{ job.get_absolute_url }}">{{ job.title }}</a></h2>
 
         {{ job.description|markdown }}
     </div>
 
-    <div class="span3 well">
+    <div class="span5 well">
         <table>
             {% if job.posted %}<tr><td>Posted:</td><td>{{ job.posted }}</td></tr>{% endif %}
             {% if job.get_job_type_display %}<tr><td>Type:</td><td>{{ job.get_job_type_display }}</td></tr>{% endif %}
