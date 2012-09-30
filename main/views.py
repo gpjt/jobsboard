@@ -11,11 +11,20 @@ from webgljobs.main.forms import TweetForm
 from webgljobs.main.models import Job, Retweeter
 
 
-def tweet_as_webgljobs(tweet):
+def tweet_and_retweet(tweet):
     auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
     auth.set_access_token(settings.OWN_TWITTER_ACCOUNT_ACCESS_KEY, settings.OWN_TWITTER_ACCOUNT_ACCESS_SECRET)
     api = tweepy.API(auth)
-    api.update_status(tweet)
+    status = api.update_status(tweet)
+
+    for retweeter in Retweeter.objects.all():
+        try:
+            auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
+            auth.set_access_token(retweeter.access_key, retweeter.access_secret)
+            api = tweepy.API(auth)
+            api.retweet(status.id)
+        except Exception, e:
+            pass
 
 
 @staff_member_required
@@ -29,7 +38,7 @@ def approve(request, object_id):
             site = Site.objects.all()[0]
             job_url = "http://%s%s" % (site.domain, job.get_absolute_url())
             tweet = "New #WebGL #Job: %s %s" % (form.cleaned_data["summary"], job_url)
-            tweet_as_webgljobs(tweet)
+            tweet_and_retweet(tweet)
             return render(request, "job_approve_done.html", { "job": job, "tweet": tweet })
     else:
         form = TweetForm()
