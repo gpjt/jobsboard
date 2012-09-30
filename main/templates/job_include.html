@@ -6,6 +6,14 @@
         <h2><a href="{{ job.get_absolute_url }}">{{ job.title }}</a></h2>
 
         {{ job.description|markdown }}
+
+        {% if user.is_staff %}
+            [
+            <a href="http://www.webgljobs.com/admin/main/job/{{ job.id }}/">admin</a>
+            -
+            <a href="http://www.webgljobs.com/admin/main/job/{{ job.id }}/delete/">delete</a>
+            ]
+        {% endif %}
     </div>
 
     <div class="span5 well">
