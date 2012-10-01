@@ -17,6 +17,7 @@ def tweet_and_retweet(tweet):
     api = tweepy.API(auth)
     status = api.update_status(tweet)
 
+    retweet_errors = []
     for retweeter in Retweeter.objects.all():
         try:
             auth = tweepy.OAuthHandler(settings.APP_CONSUMER_KEY, settings.APP_CONSUMER_SECRET)
@@ -24,7 +25,8 @@ def tweet_and_retweet(tweet):
             api = tweepy.API(auth)
             api.retweet(status.id)
         except Exception, e:
-            pass
+            retweet_errors.append("Retweet by %s failed due to %s" % (retweeter.username, e))
+    return retweet_errors
 
 
 @staff_member_required
@@ -38,8 +40,16 @@ def approve(request, object_id):
             site = Site.objects.all()[0]
             job_url = "http://%s%s" % (site.domain, job.get_absolute_url())
             tweet = "New #WebGL #Job: %s %s" % (form.cleaned_data["summary"], job_url)
-            tweet_and_retweet(tweet)
-            return render(request, "job_approve_done.html", { "job": job, "tweet": tweet })
+            retweet_errors = tweet_and_retweet(tweet)
+            return render(
+                request,
+                "job_approve_done.html",
+                {
+                    "job": job,
+                    "tweet": tweet,
+                    "retweet_errors": retweet_errors
+                }
+            )
     else:
         form = TweetForm()
 

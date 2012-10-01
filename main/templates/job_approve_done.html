@@ -5,10 +5,21 @@
 {% block body %}
 
     <p>
-        Job "{{ job.title }}" has been approved, and the following tweet has been 
+        Job "{{ job.title }}" has been approved, and the following tweet has been
         sent: <b>{{ tweet }}</b>
     </p>
-    
+
+    {% if retweet_errors %}
+        <p>
+        However, the following errors were encountered while retweeting:
+        </p>
+        <ul>
+            {% for error in retweet_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <p>
         <a href="{{ job.get_absolute_url }}">Click here to visit the job.</a>
     </p>
