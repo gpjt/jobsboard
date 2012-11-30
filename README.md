@@ -1,7 +1,7 @@
-# WebGL Jobs website #
+# A jobs website #
 
-This is a simple job-posting website written for Django.  It's made public
-under an MIT License.
+This is a simple job-posting website writtencwi using Django and Bootstrap.
+It's made public under an MIT License.
 
 ## Configuration ##
 
