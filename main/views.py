@@ -39,7 +39,7 @@ def approve(request, object_id):
             job.save()
             site = Site.objects.all()[0]
             job_url = "http://%s%s" % (site.domain, job.get_absolute_url())
-            tweet = "New #WebGL #Job: %s %s" % (form.cleaned_data["summary"], job_url)
+            tweet = "New %s: %s %s" % (settings.TWITTER_HASHTAGS, form.cleaned_data["summary"], job_url)
             retweet_errors = tweet_and_retweet(tweet)
             return render(
                 request,

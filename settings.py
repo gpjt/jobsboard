@@ -10,6 +10,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 from db_settings import *
+from sitename_settings import *
 from email_settings import *
 from twitter_settings import *
 

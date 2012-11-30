@@ -1,5 +1,6 @@
 *.pyc
 db_settings.*
 email_settings.*
+sitename_settings.*
 twitter_settings.*
 main/templates/google_analytics.html

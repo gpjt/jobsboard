@@ -43,6 +43,8 @@ Check out the source, then create three files in the root:
     OWN_TWITTER_ACCOUNT_ACCESS_KEY = 'blah blah'
     OWN_TWITTER_ACCOUNT_ACCESS_SECRET = 'blah blah'
 
+    TWITTER_HASHTAGS = "#somekind #job"
+
 Next, add a file called `main/templates/google_analytics.html`; this can contain
 with the Google Analytics code if you want, or should otherwise be empty.
 
