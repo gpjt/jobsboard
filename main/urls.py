@@ -4,10 +4,10 @@ from django.views.generic.simple import direct_to_template
 from django.views.generic.create_update import create_object
 from django.views.generic.list_detail import object_detail
 
-from webgljobs.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
-from webgljobs.main.forms import JobForm
-from webgljobs.main.models import Job
-from webgljobs.main.views import approve, disapprove, retweeter_oauth_callback, retweeter_setup_oath
+from jobsboard.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
+from jobsboard.main.forms import JobForm
+from jobsboard.main.models import Job
+from jobsboard.main.views import approve, disapprove, retweeter_oauth_callback, retweeter_setup_oath
 
 urlpatterns = patterns("",
 

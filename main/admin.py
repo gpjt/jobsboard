@@ -1,5 +1,5 @@
 from django.contrib import admin
-from webgljobs.main.models import Job, Retweeter
+from jobsboard.main.models import Job, Retweeter
 
 class JobAdmin(admin.ModelAdmin):
     list_display = ('approved', 'filled', 'title', 'contact_email')

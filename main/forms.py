@@ -1,6 +1,6 @@
 from django import forms
 
-from webgljobs.main.models import Job
+from jobsboard.main.models import Job
 
 
 class JobForm(forms.ModelForm):

@@ -7,8 +7,8 @@ from django.shortcuts import get_object_or_404, render
 
 import tweepy
 
-from webgljobs.main.forms import TweetForm
-from webgljobs.main.models import Job, Retweeter
+from jobsboard.main.forms import TweetForm
+from jobsboard.main.models import Job, Retweeter
 
 
 def tweet_and_retweet(tweet):

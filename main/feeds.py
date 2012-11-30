@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
-from webgljobs.main.models import Job
+from jobsboard.main.models import Job
 
 
 # Keep Chrome happy as per http://stackoverflow.com/a/1081023/32846 -- thanks to
