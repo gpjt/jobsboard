@@ -1,6 +1,6 @@
 # A jobs website #
 
-This is a simple job-posting website writtencwi using Django and Bootstrap.
+This is a simple job-posting website written using Django and Bootstrap.
 It's made public under an MIT License.
 
 ## Configuration ##
