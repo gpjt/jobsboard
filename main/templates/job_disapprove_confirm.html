@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: Disapprove {{ job.title }}?{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: Disapprove {{ job.title }}?{% endblock %}
 
 {% block body %}
 
@@ -9,7 +9,7 @@
     <hr/>
     {% include "job_include.html" %}
     <hr/>
-    
+
     <p>
         <b>Are you sure?</b>
     </p>

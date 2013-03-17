@@ -9,9 +9,9 @@
 
         {% if user.is_staff %}
             [
-            <a href="http://www.webgljobs.com/admin/main/job/{{ job.id }}/">admin</a>
+            <a href="/admin/main/job/{{ job.id }}/">admin</a>
             -
-            <a href="http://www.webgljobs.com/admin/main/job/{{ job.id }}/delete/">delete</a>
+            <a href="/admin/main/job/{{ job.id }}/delete/">delete</a>
             ]
         {% endif %}
     </div>
