@@ -10,6 +10,8 @@ class Job(models.Model):
 
     title = models.CharField(max_length=1024)
 
+    posted_from_ip = models.IPAddressField(blank=True, null=True)
+
     JOB_TYPE_CHOICES = (
         ("PT", "Part-time"),
         ("FT", "Full-time"),
