@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: Retweeting us: done!{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: Retweeting us: done!{% endblock %}
 
 {% block about_tab_class %}active{% endblock %}
 
@@ -12,8 +12,8 @@
 
         <p>
             <b>
-                You're now set up to automatically retweet about all new WebGL 
-                jobs.
+                You're now set up to automatically retweet about all new
+                {{ JOB_TYPE_DESCRIPTION }}.
             </b>
         </p>
 
@@ -21,7 +21,7 @@
         If you want to change this any time in the future, you can
         revoke our tweeting privileges using
         <a href="https://twitter.com/settings/applications">this page on the Twitter site</a>.
-        Just look for the WebGL Job Tweeter app, and click the "Revoke" button.
+        Just look for the {{ JOBS_BOARD_TITLE }} Tweeter app, and click the "Revoke" button.
         </p>
 
     </div>

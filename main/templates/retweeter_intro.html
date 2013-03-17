@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: Retweeting us{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: Retweeting us{% endblock %}
 
 {% block about_tab_class %}active{% endblock %}
 
@@ -12,7 +12,7 @@
 
         <p>
             <b>
-                Do you want your Twitter followers to hear about new WebGL jobs, as soon as
+                Do you want your Twitter followers to hear about new {{ JOB_TYPE_DESCRIPTION }}, as soon as
                 they're posted &mdash; so your friends get the first chance to apply?
             </b>
         </p>
@@ -20,7 +20,7 @@
         <p>
         Every time someone posts a job here (well, just as soon as we've checked it
         out by hand to make sure it's not inappropriate or spam) the
-        <a href="http://www.twitter.com/webgljobs">WebGL Jobs twitter account</a>
+        <a href="http://www.twitter.com/{{ OWN_TWITTER_ACCOUNT_ID }}">{{ JOBS_BOARD_TITLE }} twitter account</a>
         tweets about it.  If you authorise
         our Twitter app, you'll automatically retweet it.
         </p>
@@ -36,7 +36,7 @@
         Interested?  Click the button below to get going.
         </p>
 
-        <a class="btn btn-primary btn-large" href="{% url retweeter_setup_oauth %}">Authorise WebGL Jobs now! &raquo;</a>
+        <a class="btn btn-primary btn-large" href="{% url retweeter_setup_oauth %}">Authorise {{ JOBS_BOARD_TITLE }} now! &raquo;</a>
     </div>
 </div>
 
