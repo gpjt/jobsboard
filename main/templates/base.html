@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WebGL jobs listing site">
+    <meta name="description" content="{{ JOB_TYPE_DESCRIPTION }} listing site">
     <meta name="author" content="Giles Thomas">
 
     <!-- Le styles -->
@@ -45,7 +45,7 @@
               <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
               <li class="{% block add_tab_class %}{% endblock %}"><a href="{% url create_new_job %}">Post a new job</a></li>
               <li class="{% block about_tab_class %}{% endblock %}"><a href="/about">About</a></li>
-              <li><a href="http://www.twitter.com/webgljobs">Twitter</a></li>
+              <li><a href="http://www.twitter.com/{{ OWN_TWITTER_ACCOUNT_ID }}">Twitter</a></li>
               <li><a href="mailto:webgljobs@gmail.com">Email</a></li>
               <li><a href="{% url feed %}">RSS</a></li>
             </ul>
@@ -64,7 +64,7 @@
             <p>
                 Hosted by <a href="http://www.pythonanywhere.com/">PythonAnywhere</a>.
                 Built with <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.
-                Source code available <a href="https://github.com/gpjt/WebGL-Jobs">on GitHub</a>.
+                Source code available <a href="https://github.com/gpjt/jobsboard">on GitHub</a>.
             </p>
 
             <p>

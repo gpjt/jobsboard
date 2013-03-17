@@ -45,6 +45,7 @@ Check out the source, then create four files in the root:
     APP_CONSUMER_SECRET = 'blah blah'
 
     # For your job board's own twitter account
+    OWN_TWITTER_ACCOUNT_ID = "myjobsboardtwitterid"
     OWN_TWITTER_ACCOUNT_ACCESS_KEY = 'blah blah'
     OWN_TWITTER_ACCOUNT_ACCESS_SECRET = 'blah blah'
 
