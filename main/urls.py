@@ -1,5 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
-from django.core.urlresolvers import reverse
+from django.conf.urls.defaults import patterns, url
 from django.views.generic.simple import direct_to_template
 from django.views.generic.create_update import create_object
 from django.views.generic.list_detail import object_detail
