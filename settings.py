@@ -1,4 +1,4 @@
-# Django settings for webgljobs project.
+# Django settings for jobsboard project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -10,6 +10,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 from db_settings import *
+from sitename_settings import *
 from email_settings import *
 from twitter_settings import *
 
@@ -93,7 +94,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'webgljobs.urls'
+ROOT_URLCONF = 'jobsboard.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -110,7 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.markup',
-    'webgljobs.main',
+    'jobsboard.main',
     'south',
 )
 

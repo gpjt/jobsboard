@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
-from webgljobs.main.models import Job
+from jobsboard.main.models import Job
 
 
 # Keep Chrome happy as per http://stackoverflow.com/a/1081023/32846 -- thanks to
@@ -14,9 +14,9 @@ class CorrectMimeTypeFeed(Rss201rev2Feed):
 class LatestEntriesFeed(Feed):
     feed_type = CorrectMimeTypeFeed
 
-    title = "WebGL Jobs"
+    title = settings.JOBS_BOARD_TITLE
     link = "/"
-    description = "An aggregator for WebGL Jobs"
+    description = "An aggregator for " + settings.JOB_TYPE_DESCRIPTION
 
     description_template = 'feed_description.html'
 
@@ -44,9 +44,9 @@ class LatestEntriesFeed(Feed):
 class UnapprovedEntriesFeed(Feed):
     feed_type = CorrectMimeTypeFeed
 
-    title = "WebGL Jobs Approval list"
+    title = settings.JOBS_BOARD_TITLE + " Approval list"
     link = "/"
-    description = "WebGL Jobs that have yet to be approved.  Included spam."
+    description = settings.JOB_TYPE_DESCRIPTION + " that have yet to be approved.  Includes spam."
 
     description_template = 'unapproved_feed_description.html'
 
