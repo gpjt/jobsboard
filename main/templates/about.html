@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: About{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: About{% endblock %}
 
 {% block about_tab_class %}active{% endblock %}
 
@@ -9,8 +9,7 @@
 <h1>About this site</h1>
 
 <p>
-This is a site listing WebGL Jobs.  It's part of
-<a href="http://learningwebgl.com/">Learning WebGL</a>.
+This is a site listing {{ JOB_TYPE_DESCRIPTION }}.
 
 <p>
 <a href="{% url create_new_job %}">Click here to advertise a position</a>.

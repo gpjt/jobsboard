@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: Thank you!{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: Thank you!{% endblock %}
 
 {% block about_tab_class %}active{% endblock %}
 
@@ -9,7 +9,7 @@
 <h1>Thanks for submitting a job!</h1>
 
 <p>
-Thank you for submitting your WebGL job.  Our admins will take a look, and
+Thank you for submitting your {{ JOB_TYPE_DESCRIPTION }}.  Our admins will take a look, and
 if everything looks OK it'll go live shortly.  If there are any problems
 we'll email you.
 

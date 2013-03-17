@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}WebGL Jobs: Approve {{ job.title }}?{% endblock %}
+{% block title %}{{ JOBS_BOARD_TITLE }}: Approve {{ job.title }}?{% endblock %}
 
 {% block body %}
 
@@ -12,12 +12,12 @@
 
     <form method="POST" action="{% url approve_job job.id %}" class="form-horizontal">
         {% csrf_token %}
-        
+
         <p>
         A tweet will be sent with the following content:
         </p>
         <p class="well">
-            <label class="control-label">New #WebGL #Job:</label>{{ form.summary }}
+            <label class="control-label">New {{ TWITTER_HASHTAGS }}:</label>{{ form.summary }}
         </p>
 
         <input type="hidden" name="confirmed" value="yes" />
