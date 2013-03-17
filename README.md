@@ -9,7 +9,12 @@ It's made public under an MIT License.
 
 ## Configuration ##
 
-Check out the source, then create three files in the root:
+Check out the source, then create four files in the root:
+
+`sitename_settings.py`:
+
+    JOBS_BOARD_TITLE = "Jimbo's site for Python jobs"
+    JOB_TYPE_DESCRIPTION = "Python Jobs"
 
 `email_settings.py`:
 
