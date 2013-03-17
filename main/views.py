@@ -1,14 +1,25 @@
 from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.sites.models import Site
-from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 import tweepy
 
-from webgljobs.main.forms import TweetForm
+from webgljobs.main.forms import JobForm, TweetForm
 from webgljobs.main.models import Job, Retweeter
+
+
+def post_job(request, **kwargs):
+    if request.method == 'POST':
+        form = JobForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_job = form.save()
+            return redirect("/add/thanks", new_job)
+    else:
+        form = JobForm()
+
+    return render(request, "create_new_job.html", { "form": form })
 
 
 def tweet_and_retweet(tweet):

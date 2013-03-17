@@ -1,12 +1,11 @@
 from django.conf.urls.defaults import patterns, url
 from django.views.generic.simple import direct_to_template
-from django.views.generic.create_update import create_object
 from django.views.generic.list_detail import object_detail
 
 from webgljobs.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
 from webgljobs.main.forms import JobForm
 from webgljobs.main.models import Job
-from webgljobs.main.views import approve, disapprove, retweeter_oauth_callback, retweeter_setup_oath
+from webgljobs.main.views import approve, disapprove, post_job, retweeter_oauth_callback, retweeter_setup_oath
 
 urlpatterns = patterns("",
 
@@ -65,7 +64,7 @@ urlpatterns = patterns("",
 
     url(
         r"^add/$",
-        create_object,
+        post_job,
         {
             "form_class": JobForm,
             "template_name": "create_new_job.html",
