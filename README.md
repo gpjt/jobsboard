@@ -19,6 +19,7 @@ Check out the source, then create four files in the root:
 `email_settings.py`:
 
     EMAIL_SUBJECT_PREFIX = "[Some Kind Of Jobs] "
+    EMAIL_SITE_ADDRESS = "email_address_for_receving_stuff_from_readers@somewhere.com"
     EMAIL_HOST = "smtp.gmail.com"
     EMAIL_HOST_USER = "something@gmail.com"
     EMAIL_PORT = 587
