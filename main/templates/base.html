@@ -67,9 +67,11 @@
                 Source code available <a href="https://github.com/gpjt/jobsboard">on GitHub</a>.
             </p>
 
-            <p>
-                WebGL and the WebGL logo are trademarks of <a href="http://www.khronos.org/">the Khronos Group Inc</a>.
-            </p>
+            {% if FOOTER_TEXT %}
+                <p>
+                    {{ FOOTER_TEXT|safe }}
+                </p>
+            {% endif %}
         </footer>
 
     </div> <!-- /container -->

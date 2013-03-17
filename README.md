@@ -15,6 +15,7 @@ Check out the source, then create four files in the root:
 
     JOBS_BOARD_TITLE = "Jimbo's site for Python jobs"
     JOB_TYPE_DESCRIPTION = "Python Jobs"
+    FOOTER_TEXT = "Some text to go at the bottom of every page"
 
 `email_settings.py`:
 
