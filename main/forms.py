@@ -7,7 +7,7 @@ from jobsboard.main.models import Job
 class JobForm(forms.ModelForm):
     class Meta:
         model = Job
-        exclude = ('approved', 'filled', 'posted_from_ip')
+        exclude = ('approved', 'filled', 'spam', 'posted_from_ip', "posted_by_user_agent")
 
 
 class TweetForm(forms.Form):
