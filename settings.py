@@ -13,6 +13,10 @@ from db_settings import *
 from sitename_settings import *
 from email_settings import *
 from twitter_settings import *
+try:
+    from akismet_settings import *
+except:
+    use_akismet = False
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

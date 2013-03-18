@@ -56,6 +56,15 @@ Check out the source, then create four files in the root:
 Next, add a file called `main/templates/google_analytics.html`; this can contain
 with the Google Analytics code if you want, or should otherwise be empty.
 
+You can also add a file to configure Akismet, which will filter job posts for
+spam:
+
+`akismet_settings.py`:
+
+    USE_AKISMET = True
+    AKISMET_KEY = 'an akismet key'
+
+
 Next, sync the DB and migrate it to bring it up to date:
 
     19:03 ~/jobsboard (master)$ ./manage.py syncdb
@@ -67,3 +76,5 @@ Next, sync the DB and migrate it to bring it up to date:
 * [Django 1.3](http://pypi.python.org/pypi/Django/)
 * [South](http://pypi.python.org/pypi/South)
 * [Python-markdown](http://pypi.python.org/pypi/Markdown)
+* *optional* The Akismet Python module.  I recommend you use [Michael Elsdoerfer's version](https://github.com/miracle2k/python-akismet) which has some useful fixes for non-ASCII text.  Install it using the following command (plus a `--user` flag if you're on PythonAnywere)
+    pip install https://github.com/miracle2k/python-akismet/archive/master.zip

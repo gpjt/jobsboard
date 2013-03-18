@@ -1,4 +1,5 @@
 *.pyc
+akismet_settings.*
 db_settings.*
 email_settings.*
 sitename_settings.*

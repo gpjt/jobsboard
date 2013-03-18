@@ -1,4 +1,7 @@
+from django.conf import settings
+from django.contrib.sites.models import Site
 from django.db import models
+
 
 class Job(models.Model):
 
@@ -9,6 +12,8 @@ class Job(models.Model):
     filled = models.BooleanField(default=False)
 
     spam = models.BooleanField(default=False)
+
+    posted_by_user_agent = models.CharField(max_length=1024, default="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22")
 
     title = models.CharField(max_length=1024)
 
@@ -46,6 +51,29 @@ class Job(models.Model):
     def __unicode__(self):
         return self.title
 
+
+    def check_spam(self):
+        if not settings.USE_AKISMET:
+            return
+        from akismet import Akismet
+        site = Site.objects.all()[0]
+        api = Akismet(key=settings.AKISMET_KEY, blog_url=site.domain)
+        try:
+            api.verify_key()
+            self.spam = api.comment_check(
+                self.description,
+                data={
+                    "user_ip": self.posted_from_ip,
+                    "user_agent": self.posted_by_user_agent,
+                    'comment_type': 'job-posting',
+                    'comment_author': self.company,
+                    'comment_author_email': self.contact_email,
+                    'comment_author_url': self.url,
+                }
+            )
+            self.save()
+        except:
+            pass
 
 class Retweeter(models.Model):
 

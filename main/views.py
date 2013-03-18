@@ -17,6 +17,7 @@ def post_job(request, **kwargs):
             new_job = form.save()
             new_job.posted_from_ip = request.META.get('REMOTE_ADDR', None)
             new_job.save()
+            new_job.check_spam()
             return redirect("/add/thanks", new_job)
     else:
         form = JobForm()

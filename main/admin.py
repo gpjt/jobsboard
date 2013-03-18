@@ -4,7 +4,7 @@ from jobsboard.main.models import Job, Retweeter
 class JobAdmin(admin.ModelAdmin):
     list_display = ('approved', 'spam', 'filled', 'title', 'contact_email', "posted_from_ip")
     list_display_links = ('title',)
-    list_filter = ('approved', 'filled')
+    list_filter = ('approved', 'filled', 'spam')
 
 admin.site.register(Job, JobAdmin)
 
