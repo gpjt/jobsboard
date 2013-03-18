@@ -8,6 +8,8 @@ class Job(models.Model):
 
     filled = models.BooleanField(default=False)
 
+    spam = models.BooleanField(default=False)
+
     title = models.CharField(max_length=1024)
 
     posted_from_ip = models.IPAddressField(blank=True, null=True)
