@@ -46,7 +46,7 @@ class UnapprovedEntriesFeed(Feed):
 
     title = settings.JOBS_BOARD_TITLE + " Approval list"
     link = "/"
-    description = settings.JOB_TYPE_DESCRIPTION + " that have yet to be approved.  Includes spam."
+    description = settings.JOB_TYPE_DESCRIPTION + " that have yet to be approved.  Spam has been filtered by Akismet if it's configured."
 
     description_template = 'unapproved_feed_description.html'
 
@@ -54,7 +54,7 @@ class UnapprovedEntriesFeed(Feed):
         return "Giles Thomas"
 
     def items(self):
-        return Job.objects.filter(approved=False).order_by("-posted")
+        return Job.objects.filter(approved=False).exclude(spam=True).order_by("-posted")
 
     def item_title(self, item):
         return item.title
