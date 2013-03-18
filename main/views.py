@@ -16,6 +16,8 @@ def post_job(request, **kwargs):
         if form.is_valid():
             new_job = form.save()
             new_job.posted_from_ip = request.META.get('REMOTE_ADDR', None)
+            if 'HTTP_USER_AGENT' in request.META:
+                new_job.posted_by_user_agent = request.META['HTTP_USER_AGENT']
             new_job.save()
             new_job.check_spam()
             return redirect("/add/thanks", new_job)
