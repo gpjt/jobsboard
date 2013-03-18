@@ -16,7 +16,7 @@ from twitter_settings import *
 try:
     from akismet_settings import *
 except:
-    use_akismet = False
+    USE_AKISMET = False
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
