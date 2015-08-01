@@ -3,7 +3,12 @@
 <div class="row">
 
     <div class="span6">
-        <h2><a href="{{ job.get_absolute_url }}">{{ job.title }}</a></h2>
+        <h2>
+            <a href="{{ job.get_absolute_url }}">{{ job.title }}</a>
+            {% if job.filled %}
+                <b>&mdash; filled</b>
+            {% endif %}
+        </h2>
 
         {{ job.description|markdown }}
 
@@ -18,14 +23,18 @@
 
     <div class="span5 well">
         <table>
-            {% if job.posted %}<tr><td>Posted:</td><td>{{ job.posted }}</td></tr>{% endif %}
-            {% if job.get_job_type_display %}<tr><td>Type:</td><td>{{ job.get_job_type_display }}</td></tr>{% endif %}
-            {% if job.salary %}<tr><td>Rate/Salary:</td><td>{{ job.salary }}</td></tr>{% endif %}
-            {% if job.url %}<tr><td>Website:</td><td>{{ job.url|urlizetrunc:32 }}</td></tr>{% endif %}
-            {% if job.location %}<tr><td>Location:</td><td>{{ job.location }}</td></tr>{% endif %}
-            {% if job.company %}<tr><td>Company:</td><td>{{ job.company }}</td></tr>{% endif %}
-            {% if job.experience %}<tr><td>Experience:</td><td>{{ job.experience }}</td></tr>{% endif %}
-            {% if job.contact_email %}<tr><td>Contact:</td><td><a href="mailto:{{ job.contact_email }}">{{ job.contact_email }}</a></td></tr>{% endif %}
+            {% if job.filled %}
+                Position filled :-)
+            {% else %}
+                {% if job.posted %}<tr><td>Posted:</td><td>{{ job.posted }}</td></tr>{% endif %}
+                {% if job.get_job_type_display %}<tr><td>Type:</td><td>{{ job.get_job_type_display }}</td></tr>{% endif %}
+                {% if job.salary %}<tr><td>Rate/Salary:</td><td>{{ job.salary }}</td></tr>{% endif %}
+                {% if job.url %}<tr><td>Website:</td><td>{{ job.url|urlizetrunc:32 }}</td></tr>{% endif %}
+                {% if job.location %}<tr><td>Location:</td><td>{{ job.location }}</td></tr>{% endif %}
+                {% if job.company %}<tr><td>Company:</td><td>{{ job.company }}</td></tr>{% endif %}
+                {% if job.experience %}<tr><td>Experience:</td><td>{{ job.experience }}</td></tr>{% endif %}
+                {% if job.contact_email %}<tr><td>Contact:</td><td><a href="mailto:{{ job.contact_email }}">{{ job.contact_email }}</a></td></tr>{% endif %}
+            {% endif %}
         </table>
     </div>
 
