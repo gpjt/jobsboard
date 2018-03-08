@@ -1,9 +1,9 @@
 {% load markup %}
 <h1>Please check</h1>
 
-<p><b><a href="{% url approve_job obj.id %}">Click here to APPROVE AND TWEET</b></p>
+<p><b><a href="{% url 'approve_job' obj.id %}">Click here to APPROVE AND TWEET</a></b></p>
 
-<p><b><a href="{% url disapprove_job obj.id %}">Click here to DISAPPROVE AND DELETE</b></p>
+<p><b><a href="{% url 'disapprove_job' obj.id %}">Click here to DISAPPROVE AND DELETE</a></b></p>
 
 
 {{ obj.description|markdown }}

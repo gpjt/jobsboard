@@ -10,6 +10,26 @@ from jobsboard.main.forms import JobForm, TweetForm
 from jobsboard.main.models import Job, Retweeter
 
 
+def front_page(request):
+    return render(
+        request,
+        "main_page.html",
+        {
+            "jobs": Job.objects.all().filter(filled=False).filter(approved=True).order_by("-id")
+        }
+    )
+
+
+def job_detail(request, object_id):
+    return render(
+        request,
+        "job_detail.html",
+        {
+            "job": get_object_or_404(Job, object_id),
+        }
+    )
+
+
 def post_job(request, **kwargs):
     if request.method == 'POST':
         form = JobForm(request.POST, request.FILES)

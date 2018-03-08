@@ -1,34 +1,24 @@
 from django.conf.urls.defaults import patterns, url
-from django.views.generic.simple import direct_to_template
-from django.views.generic.list_detail import object_detail
+from django.views.generic.base import TemplateView
 
 from jobsboard.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
 from jobsboard.main.forms import JobForm
-from jobsboard.main.models import Job
-from jobsboard.main.views import approve, disapprove, post_job, retweeter_oauth_callback, retweeter_setup_oath
+from jobsboard.main.views import (
+    approve, disapprove, front_page, job_detail, post_job,
+    retweeter_oauth_callback, retweeter_setup_oath
+)
 
 urlpatterns = patterns("",
 
     url(
         r"^$",
-        direct_to_template,
-        {
-            "template": "main_page.html",
-            "extra_context": {
-                "jobs": lambda: Job.objects.all().filter(filled=False).filter(approved=True).order_by("-id")
-            }
-        },
+        front_page,
         name="main_page"
     ),
 
     url(
         r'^(?P<object_id>\d+)/$',
-        object_detail,
-        {
-            "queryset": Job.objects.all(),
-            "template_name": "job_detail.html",
-            "template_object_name": "job"
-        },
+        job_detail,
         name="view_job"
     ),
     url(
@@ -55,10 +45,7 @@ urlpatterns = patterns("",
 
     url(
         r"^about/$",
-        direct_to_template,
-        {
-            "template": "about.html",
-        },
+        TemplateView.as_view(template_name="about.html"),
         name="about_page"
     ),
 
@@ -74,19 +61,13 @@ urlpatterns = patterns("",
     ),
     url(
         r"^add/thanks$",
-        direct_to_template,
-        {
-            "template": "create_new_job_thanks.html",
-        },
+        TemplateView.as_view(template_name="create_new_job_thanks.html"),
         name="create_new_job_thanks"
     ),
 
     url(
         r"^retweeter/intro$",
-        direct_to_template,
-        {
-            "template": "retweeter_intro.html",
-        },
+        TemplateView.as_view(template_name="retweeter_intro.html"),
         name="retweeter_intro"
     ),
     url(

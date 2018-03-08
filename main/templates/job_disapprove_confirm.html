@@ -14,7 +14,7 @@
         <b>Are you sure?</b>
     </p>
 
-    <form method="POST" action="{% url disapprove_job job.id %}">
+    <form method="POST" action="{% url 'disapprove_job' job.id %}">
         {% csrf_token %}
         <input type="hidden" name="confirmed" value="yes" />
         <input type="submit" class="btn btn-danger" value="Disapprove and delete" />
