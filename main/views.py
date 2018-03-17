@@ -25,7 +25,7 @@ def job_detail(request, object_id):
         request,
         "job_detail.html",
         {
-            "job": get_object_or_404(Job, object_id),
+            "job": get_object_or_404(Job, pk=int(object_id)),
         }
     )
 
