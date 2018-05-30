@@ -1,5 +1,3 @@
-{% load markup %}
-
 <div class="row">
 
     <div class="span6">
@@ -10,7 +8,7 @@
             {% endif %}
         </h2>
 
-        {{ job.description|markdown }}
+        {{ job.description_rendered }}
 
         {% if user.is_staff %}
             [

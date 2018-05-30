@@ -73,7 +73,4 @@ Next, sync the DB and migrate it to bring it up to date:
 
 ## Dependencies ##
 
-* [Django 1.3](http://pypi.python.org/pypi/Django/)
-* [South](http://pypi.python.org/pypi/South)
-* [Python-markdown](http://pypi.python.org/pypi/Markdown)
-* *Optional*: The Akismet Python module.  I recommend you use [Michael Elsdoerfer's version](https://github.com/miracle2k/python-akismet) which has some useful fixes for non-ASCII text.
+See requirements.txt

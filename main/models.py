@@ -1,6 +1,9 @@
+import markdown
+
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.db import models
+from django.utils.safestring import mark_safe
 
 
 class Job(models.Model):
@@ -74,6 +77,15 @@ class Job(models.Model):
             self.save()
         except:
             pass
+
+
+    def description_rendered(self):
+        html = markdown.markdown(
+            self.description,
+            safe_mode='escape'
+        )
+        return mark_safe(html)
+
 
 class Retweeter(models.Model):
 
