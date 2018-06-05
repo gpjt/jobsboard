@@ -1,5 +1,5 @@
 from django.contrib import admin
-from jobsboard.main.models import Job, Retweeter
+from main.models import Job, Retweeter
 
 class JobAdmin(admin.ModelAdmin):
     list_display = ('approved', 'spam', 'filled', 'title', 'contact_email', "posted_from_ip")

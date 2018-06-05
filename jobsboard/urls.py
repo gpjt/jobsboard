@@ -6,7 +6,7 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    url(r'^', include('jobsboard.main.urls')),
+    url(r'^', include('main.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

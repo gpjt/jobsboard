@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, url
 from django.views.generic.base import TemplateView
 
-from jobsboard.main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
-from jobsboard.main.forms import JobForm
-from jobsboard.main.views import (
+from main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
+from main.forms import JobForm
+from main.views import (
     approve, disapprove, front_page, job_detail, post_job,
     retweeter_oauth_callback, retweeter_setup_oath
 )

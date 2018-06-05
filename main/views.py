@@ -6,8 +6,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 import tweepy
 
-from jobsboard.main.forms import JobForm, TweetForm
-from jobsboard.main.models import Job, Retweeter
+from main.forms import JobForm, TweetForm
+from main.models import Job, Retweeter
 
 
 def front_page(request):

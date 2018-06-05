@@ -114,8 +114,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'jobsboard.main',
-    'south',
+    'main',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -125,7 +124,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "django.core.context_processors.static",
-    'jobsboard.main.context_processors.settings_for_templates',
+    'main.context_processors.settings_for_templates',
 )
 
 

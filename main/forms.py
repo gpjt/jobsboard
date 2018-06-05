@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 
-from jobsboard.main.models import Job
+from main.models import Job
 
 
 class JobForm(forms.ModelForm):
