@@ -1,47 +1,49 @@
-# encoding: utf-8
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
-class Migration(SchemaMigration):
-
-    def forwards(self, orm):
-        
-        # Adding model 'Job'
-        db.create_table('main_job', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('posted', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('job_type', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('url', self.gf('django.db.models.fields.CharField')(max_length=1024, blank=True)),
-            ('location', self.gf('django.db.models.fields.CharField')(max_length=1024, blank=True)),
-            ('company', self.gf('django.db.models.fields.CharField')(max_length=512, blank=True)),
-            ('description', self.gf('django.db.models.fields.CharField')(max_length=8192)),
-            ('contact_email', self.gf('django.db.models.fields.EmailField')(max_length=254)),
-            ('experience', self.gf('django.db.models.fields.CharField')(max_length=128)),
-        ))
-        db.send_create_signal('main', ['Job'])
+from django.db import models, migrations
 
 
-    def backwards(self, orm):
-        
-        # Deleting model 'Job'
-        db.delete_table('main_job')
+class Migration(migrations.Migration):
 
+    dependencies = [
+    ]
 
-    models = {
-        'main.job': {
-            'Meta': {'object_name': 'Job'},
-            'company': ('django.db.models.fields.CharField', [], {'max_length': '512', 'blank': 'True'}),
-            'contact_email': ('django.db.models.fields.EmailField', [], {'max_length': '254'}),
-            'description': ('django.db.models.fields.CharField', [], {'max_length': '8192'}),
-            'experience': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'job_type': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
-            'location': ('django.db.models.fields.CharField', [], {'max_length': '1024', 'blank': 'True'}),
-            'posted': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'url': ('django.db.models.fields.CharField', [], {'max_length': '1024', 'blank': 'True'})
-        }
-    }
-
-    complete_apps = ['main']
+    operations = [
+        migrations.CreateModel(
+            name='Job',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('posted', models.DateTimeField(auto_now_add=True)),
+                ('approved', models.BooleanField(default=False)),
+                ('filled', models.BooleanField(default=False)),
+                ('spam', models.BooleanField(default=False)),
+                ('posted_by_user_agent', models.CharField(default=b'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22', max_length=1024)),
+                ('posted_from_ip', models.IPAddressField(null=True, blank=True)),
+                ('title', models.CharField(max_length=1024)),
+                ('job_type', models.CharField(max_length=2, choices=[(b'PT', b'Part-time'), (b'FT', b'Full-time'), (b'FL', b'Freelance'), (b'VL', b'Volunteer'), (b'OT', b'Other')])),
+                ('salary', models.CharField(max_length=128, blank=True)),
+                ('url', models.CharField(max_length=1024, blank=True)),
+                ('location', models.CharField(max_length=1024, blank=True)),
+                ('company', models.CharField(max_length=512, blank=True)),
+                ('description', models.TextField()),
+                ('contact_email', models.EmailField(max_length=254, blank=True)),
+                ('experience', models.CharField(max_length=128, blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Retweeter',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('username', models.CharField(unique=True, max_length=32)),
+                ('access_key', models.CharField(max_length=70)),
+                ('access_secret', models.CharField(max_length=70)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+    ]
