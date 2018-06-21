@@ -60,7 +60,7 @@ def tweet_and_retweet(tweet):
             auth.set_access_token(retweeter.access_key, retweeter.access_secret)
             api = tweepy.API(auth)
             api.retweet(status.id)
-        except Exception, e:
+        except Exception as e:
             retweet_errors.append("Retweet by %s failed due to %s" % (retweeter.username, e))
     return retweet_errors
 

@@ -67,6 +67,7 @@ spam:
 
     USE_AKISMET = True
     AKISMET_KEY = 'an akismet key'
+    AKISMET_SITE = "https://www.yoursite.com/"
 
 
 Next, sync the DB and migrate it to bring it up to date:

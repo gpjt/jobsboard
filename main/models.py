@@ -60,7 +60,7 @@ class Job(models.Model):
             return
         from akismet import Akismet
         site = Site.objects.all()[0]
-        api = Akismet(key=settings.AKISMET_KEY, blog_url=site.domain)
+        api = Akismet(key=settings.AKISMET_KEY, blog_url=settings.AKISMET_SITE)
         try:
             api.verify_key()
             self.spam = api.comment_check(
