@@ -9,13 +9,17 @@ It's made public under an MIT License.
 
 ## Configuration ##
 
-Check out the source, then create four files in the root:
+Check out the source, then create four files in the jobsboard subdirectory (next
+to `settings.py`):
 
 `sitename_settings.py`:
 
     JOBS_BOARD_TITLE = "Jimbo's site for Python jobs"
     JOB_TYPE_DESCRIPTION = "Python Jobs"
     FOOTER_TEXT = "Some text to go at the bottom of every page"
+
+    ALLOWED_HOSTS = ["www.yoursite.com"]
+
 
 `email_settings.py`:
 
