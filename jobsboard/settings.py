@@ -84,7 +84,7 @@ STATICFILES_FINDERS = (
 SECRET_KEY = 'k6p98@r5p)8x@=5jp0-ql44h-*&n#)tj)%kb+*d$5+4_)398(s'
 
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
