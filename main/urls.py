@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.views.generic.base import TemplateView
 
 from main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
@@ -8,7 +8,7 @@ from main.views import (
     retweeter_oauth_callback, retweeter_setup_oath
 )
 
-urlpatterns = patterns("",
+urlpatterns = [
 
     url(
         r"^$",
@@ -81,5 +81,4 @@ urlpatterns = patterns("",
         name="retweeter_oauth_callback"
     ),
 
-
-)
+]
