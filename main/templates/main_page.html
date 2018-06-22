@@ -16,4 +16,15 @@
 
     {% endfor %}
 
+    Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}.
+
+    <ul class="pager">
+        {% if jobs.has_previous %}
+            <li><a href="?page={{ jobs.previous_page_number }}">Newer jobs</a></li>
+        {% endif %}
+        {% if jobs.has_next %}
+            <li><a href="?page={{ jobs.next_page_number }}">Older jobs</a></li>
+        {% endif %}
+    </ul>
+
 {% endblock %}

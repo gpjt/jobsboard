@@ -2,7 +2,9 @@ from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.sites.models import Site
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
+
 
 import tweepy
 
@@ -11,11 +13,14 @@ from main.models import Job, Retweeter
 
 
 def front_page(request):
+    jobs = Job.objects.all().filter(filled=False).filter(approved=True).order_by("-id")
+    paginator = Paginator(jobs, 15)
+    page = request.GET.get("page")
     return render(
         request,
         "main_page.html",
         {
-            "jobs": Job.objects.all().filter(filled=False).filter(approved=True).order_by("-id")
+            "jobs": paginator.get_page(page)
         }
     )
 
