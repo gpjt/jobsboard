@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 from django.views.generic.base import TemplateView
 
 from main.feeds import LatestEntriesFeed, UnapprovedEntriesFeed
@@ -10,47 +10,47 @@ from main.views import (
 
 urlpatterns = [
 
-    url(
-        r"^$",
+    path(
+        "",
         front_page,
         name="main_page"
     ),
 
-    url(
-        r'^(?P<object_id>\d+)/$',
+    path(
+        '<int:object_id>/',
         job_detail,
         name="view_job"
     ),
-    url(
-        r'^(?P<object_id>\d+)/approve$',
+    path(
+        '<int:object_id>/approve$',
         approve,
         name="approve_job"
     ),
-    url(
-        r'^(?P<object_id>\d+)/disapprove$',
+    path(
+        '<int:object_id>/disapprove$',
         disapprove,
         name="disapprove_job"
     ),
 
-    url(
-        r'^feed/$',
+    path(
+        'feed/',
         LatestEntriesFeed(),
         name="feed"
     ),
-    url(
-        r'^unapproved_feed/$',
+    path(
+        'unapproved_feed/',
         UnapprovedEntriesFeed(),
         name="unapproved_feed"
     ),
 
-    url(
-        r"^about/$",
+    path(
+        "about/",
         TemplateView.as_view(template_name="about.html"),
         name="about_page"
     ),
 
-    url(
-        r"^add/$",
+    path(
+        "add/",
         post_job,
         {
             "form_class": JobForm,
@@ -59,24 +59,24 @@ urlpatterns = [
         },
         name="create_new_job"
     ),
-    url(
-        r"^add/thanks$",
+    path(
+        "add/thanks",
         TemplateView.as_view(template_name="create_new_job_thanks.html"),
         name="create_new_job_thanks"
     ),
 
-    url(
-        r"^retweeter/intro$",
+    path(
+        "retweeter/intro",
         TemplateView.as_view(template_name="retweeter_intro.html"),
         name="retweeter_intro"
     ),
-    url(
-        r"^retweeter/setup_oauth$",
+    path(
+        "retweeter/setup_oauth",
         retweeter_setup_oath,
         name="retweeter_setup_oauth"
     ),
-    url(
-        r"^retweeter/oauth_callback$",
+    path(
+        "retweeter/oauth_callback",
         retweeter_oauth_callback,
         name="retweeter_oauth_callback"
     ),
