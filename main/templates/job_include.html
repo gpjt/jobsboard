@@ -1,6 +1,6 @@
 <div class="row">
 
-    <div class="span6">
+    <div class="col-sm-7">
         <h2>
             <a href="{{ job.get_absolute_url }}">{{ job.title }}</a>
             {% if job.filled %}
@@ -19,7 +19,7 @@
         {% endif %}
     </div>
 
-    <div class="span5 well">
+    <div class="col-sm-5 well">
         <table>
             {% if job.filled %}
                 Position filled :-)

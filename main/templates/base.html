@@ -2,57 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ JOB_TYPE_DESCRIPTION }} listing site">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Giles Thomas">
+    <meta name="description" content="{{ JOB_TYPE_DESCRIPTION }} listing site">
 
-    <!-- Le styles -->
-    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/static/styles/jobsboard.css" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles/jobsboard.css">
   </head>
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">{{ JOBS_BOARD_TITLE }}</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
-              <li class="{% block add_tab_class %}{% endblock %}"><a href="{% url 'create_new_job' %}">Post a new job</a></li>
-              <li class="{% block about_tab_class %}{% endblock %}"><a href="/about">About</a></li>
-              <li><a href="http://www.twitter.com/{{ OWN_TWITTER_ACCOUNT_ID }}">Twitter</a></li>
-              <li><a href="mailto:{{ EMAIL_SITE_ADDRESS }}">Email</a></li>
-              <li><a href="{% url 'feed' %}">RSS</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="brand" href="/">{{ JOBS_BOARD_TITLE }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% block add_tab_class %}{% endblock %}"><a class="nav-link" href="{% url 'create_new_job' %}">Post a new job</a></li>
+                <li class="nav-item {% block about_tab_class %}{% endblock %}"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://www.twitter.com/{{ OWN_TWITTER_ACCOUNT_ID }}">Twitter</a></li>
+                <li class="nav-item"><a class="nav-link" href="mailto:{{ EMAIL_SITE_ADDRESS }}">Email</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'feed' %}">RSS</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
+    </nav>
 
     <div class="container">
 
@@ -63,7 +39,7 @@
             <hr/>
             <p>
                 Hosted by <a href="http://www.pythonanywhere.com/">PythonAnywhere</a>.
-                Built with <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.
+                Built with <a href="https://getbootstrap.com/">Bootstrap</a>.
                 Source code available <a href="https://github.com/gpjt/jobsboard">on GitHub</a>.
             </p>
 
@@ -76,11 +52,9 @@
 
     </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/jquery/jquery-1.7.2.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     {% include "google_analytics.html" %}
 
