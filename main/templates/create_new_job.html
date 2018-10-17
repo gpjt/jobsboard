@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 
+{% load add_css %}
+
 {% block title %}{{ JOBS_BOARD_TITLE }}: Post a new job{% endblock %}
 
 {% block add_tab_class %}active{% endblock %}
 
 {% block body %}
 
-    <h2>Post a new job</h2>
+    <div class="row">
 
-    <p>
-    All fields are optional apart from title, job type, and description.
-    The description can be formatted using
-    <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>.
+        <div class="col-sm-10">
+            <h2>Post a new job</h2>
+
+            <p>
+                All fields are optional apart from the one-line description, the job type, and the full description.
+            </p>
+        </div>
+
+    </div>
 
     <div class="row">
 
@@ -20,7 +27,26 @@
 
                 {% csrf_token %}
 
-                {{ form.as_table }}
+                {% for field in form.visible_fields %}
+
+                    <div class="form-group">
+                        <label for="{{ field.auto_id }}">
+                            {% if field.name == 'title' %}
+                                One-line job description
+                            {% elif field.name == 'description' %}
+                                Full job description
+                            {% else %}
+                                {{field.label|capfirst}}
+                            {% endif %}
+                        </label>
+                        {% if field.name == 'description' %}
+                            (format using
+                            <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>)
+                        {% endif %}
+                        {{ field|add_css:"form-control" }}
+                    </div>
+
+                {% endfor %}
 
                 <br/>
 

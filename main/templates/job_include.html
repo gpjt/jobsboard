@@ -1,13 +1,19 @@
 <div class="row">
 
-    <div class="col-sm-7">
+    <div class="col-sm-12">
         <h2>
             <a href="{{ job.get_absolute_url }}">{{ job.title }}</a>
             {% if job.filled %}
                 <b>&mdash; filled</b>
             {% endif %}
         </h2>
+    </div>
 
+</div>
+
+<div class="row">
+
+    <div class="col-sm-7">
         {{ job.description_rendered }}
 
         {% if user.is_staff %}
